@@ -1,19 +1,11 @@
-import AppContext from "./store/app-context";
 import Login from "./components/Login";
-import { useState } from "react";
+import AppProvider from "./components/AppProvider";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  function setlogin() {
-    setIsLoggedIn(true);
-  }
-  function setlogout() {
-    setIsLoggedIn(false);
-  }
   return (
-    <AppContext.Provider value={{ isLoggedIn, setlogin, setlogout }}>
+    <AppProvider>
       <Login></Login>
-    </AppContext.Provider>
+    </AppProvider>
   );
 }
 

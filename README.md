@@ -55,3 +55,24 @@
    );
 
 3. In Login We will have useContext() to consume this context
+
+4. We will now convert the </AppContext.Provider> into a new component for a better readability of code
+
+   - We will make a new compoenent as AppProvider
+
+   ```
+       function AppProvider({ children }) {
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
+   function setlogin() {
+       setIsLoggedIn(true);
+   }
+   function setlogout() {
+       setIsLoggedIn(false);
+   }
+   return (
+       <AppContext.Provider value={{ isLoggedIn, setlogin, setlogout }}>
+       {children}
+       </AppContext.Provider>
+   );
+   }
+   ```
