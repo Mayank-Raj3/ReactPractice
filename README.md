@@ -30,3 +30,28 @@
             }
 
 ### Passing State in context
+
+1. app-context.js will have
+   const AppContext = createContext({
+   isLoggedIn: false,
+   setlogin: () => {},
+   setlogout: () => {},
+   });
+2. In app.js Context Provider.js will have
+
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+   function setlogin() {
+   setIsLoggedIn(true);
+   }
+
+   function setlogout() {
+   setIsLoggedIn(false);
+   }
+   return (
+   <AppContext.Provider value={{ isLoggedIn, setlogin, setlogout }}>
+   <Login></Login>
+   </AppContext.Provider>
+   );
+
+3. In Login We will have useContext() to consume this context

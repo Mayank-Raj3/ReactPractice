@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import AppContext from "./store/app-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Now Will pass isLoggedIn in App
+
 root.render(
   <>
-    <AppContext.Provider value={{ name: "Maycnk" }}>
-      <App />
-    </AppContext.Provider>
+    <App />
   </>
 );

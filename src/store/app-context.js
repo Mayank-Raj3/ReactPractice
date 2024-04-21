@@ -1,7 +1,10 @@
 import { createContext } from "react";
 
+//  This gives the representation of data
 const AppContext = createContext({
-  name: "Maayank",
+  isLoggedIn: false,
+  setlogin: () => {},
+  setlogout: () => {},
 });
 
 export default AppContext;
