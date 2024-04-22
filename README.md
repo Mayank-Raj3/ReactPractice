@@ -108,6 +108,48 @@ In React, `useReducer` is a Hook used for state management. It is an alternative
 
 This README will guide you through the usage of `useReducer` with a simple authentication example.
 
+#### Syntax
+
+```javascript
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+- `state`: Represents the current state managed by the reducer.
+- `dispatch`: A function used to dispatch actions to the reducer.
+- `reducer`: A function that specifies how the state should update in response to different actions.
+- `initialState`: The initial state of the reducer.
+
+In our example:
+
+```javascript
+const [authState, dispatchAuth] = useReducer(authReducer, initialAuthState);
+```
+
+- `authState`: Represents the current authentication state managed by the `authReducer`.
+- `dispatchAuth`: A function used to dispatch actions to the `authReducer`.
+- `authReducer`: The reducer function that handles authentication state transitions.
+- `initialAuthState`: The initial authentication state, where `isLoggedIn` is set to `false`.
+
+#### Usage
+
+1. **State Access**: You can access the current state (`authState`) to read the authentication status.
+
+2. **Dispatching Actions**: You can dispatch actions to update the authentication state using `dispatchAuth`.
+
+```javascript
+// Dispatching an action to login
+dispatchAuth({
+  type: "Login",
+});
+
+// Dispatching an action to logout
+dispatchAuth({
+  type: "Logout",
+});
+```
+
+3. **Reducer Logic**: Inside the `authReducer`, you define how the authentication state should change based on different action types. In our example, the reducer handles actions of type `"Login"` and `"Logout"`.
+
 ### Example: Authentication with useReducer
 
 Suppose you have an authentication feature in your React application. You want to manage the authentication state (`isLoggedIn`) and provide methods to login and logout.
